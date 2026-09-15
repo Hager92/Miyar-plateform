@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "test_name",
+  "result_value",
+  "unit",
+  "column_break_1",
+  "compliance_status",
+  "compliance_rule_version",
+  "evaluated_on"
+ ],
+ "fields": [
+  {
+   "description": "B.R.204 — specific chemical test list not enumerated in the BRD; configure via Reference Data Item",
+   "fieldname": "test_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Test",
+   "options": "Reference Data Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "result_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Result"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unit"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "B.R.205 — versioned SBC 303 threshold comparison",
+   "fieldname": "compliance_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Compliance",
+   "options": "Not Evaluated\nCompliant\nNon-Compliant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_rule_version",
+   "fieldtype": "Data",
+   "label": "Rule Version Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "evaluated_on",
+   "fieldtype": "Datetime",
+   "label": "Evaluated On",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Chemical Test Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC"
+}

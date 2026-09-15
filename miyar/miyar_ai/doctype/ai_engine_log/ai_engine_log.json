@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "use_case",
+  "reference_doctype",
+  "reference_name",
+  "column_break_1",
+  "status",
+  "called_by",
+  "called_on",
+  "section_break_1",
+  "input_summary",
+  "output_summary",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "description": "B.R.224–231 — one of the 5 confirmed Smart Engine use cases",
+   "fieldname": "use_case",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Use Case",
+   "options": "Exploration Plan Proposal\nSite Boundary Distribution\nChemical Sample Suggestion\nAnalytical Field Generation\nRecommendation Generation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference Name",
+   "options": "reference_doctype"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Success",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Success\nFailed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "called_by",
+   "fieldtype": "Link",
+   "label": "Called By",
+   "options": "User"
+  },
+  {
+   "default": "Now",
+   "fieldname": "called_on",
+   "fieldtype": "Datetime",
+   "label": "Called On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "input_summary",
+   "fieldtype": "Code",
+   "label": "Input (JSON)",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "output_summary",
+   "fieldtype": "Code",
+   "label": "Output (JSON)",
+   "options": "JSON"
+  },
+  {
+   "description": "B.R.230 — engine failure never blocks platform operation; the caller falls back to manual/system procedures",
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar AI",
+ "name": "AI Engine Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,126 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:item_code",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "category",
+  "item_code",
+  "column_break_1",
+  "is_active",
+  "sort_order",
+  "section_break_1",
+  "item_label_ar",
+  "item_label_en",
+  "column_break_2",
+  "mandatory_for_material_type"
+ ],
+ "fields": [
+  {
+   "description": "عنصر مرجعي — grouping used by Link/MultiSelect fields across Miyar (e.g. Specialization, Service Type, Drilling Method)",
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category",
+   "options": "Specialization\nService Type\nTest Type\nDrilling Method\nUnit\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "sort_order",
+   "fieldtype": "Int",
+   "label": "Sort Order"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_label_ar",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label (Arabic)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_label_en",
+   "fieldtype": "Data",
+   "label": "Label (English)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.category==\"Test Type\"",
+   "description": "B.R.197 — for category=Test Type only: which Soil Sample material_type(s) require this test before the sample can be marked complete. Left blank/None for none configured yet — the BRD names the mandatory-test rule but not the exact SBC 303 test catalog, so nothing is pre-seeded here.",
+   "fieldname": "mandatory_for_material_type",
+   "fieldtype": "Select",
+   "label": "Mandatory For Material Type",
+   "options": "\nSoil\nRock\nBoth"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Core",
+ "name": "Reference Data Item",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "sort_order",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

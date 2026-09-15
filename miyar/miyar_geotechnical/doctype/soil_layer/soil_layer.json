@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "borehole",
+  "layer_code",
+  "column_break_1",
+  "start_depth_m",
+  "end_depth_m",
+  "section_break_0",
+  "classification_field",
+  "description",
+  "section_break_1",
+  "field_tests"
+ ],
+ "fields": [
+  {
+   "description": "Standalone (not a child table) so its own Field Test Results / Samples can be independently loaded — Frappe does not auto-load a child table nested more than one level deep",
+   "fieldname": "borehole",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Borehole",
+   "options": "Borehole",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "description": "B.R.187 — system-generated, unique within the Borehole",
+   "fieldname": "layer_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Layer Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_depth_m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Start Depth (m)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_depth_m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "End Depth (m)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "B.R.187, 199 — field (حقلي) USCS estimate",
+   "fieldname": "classification_field",
+   "fieldtype": "Data",
+   "label": "Field Classification"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Field Tests"
+  },
+  {
+   "fieldname": "field_tests",
+   "fieldtype": "Table",
+   "label": "Field Test Results",
+   "options": "Field Test Result"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Samples",
+   "link_doctype": "Soil Sample",
+   "link_fieldname": "soil_layer"
+  }
+ ],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Soil Layer",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

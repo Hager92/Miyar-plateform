@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "autoname": "SVD-.#####",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "geotechnical_study",
+  "document",
+  "column_break_1",
+  "uploaded_by",
+  "uploaded_on",
+  "section_break_1",
+  "parcel_number",
+  "parcel_owner",
+  "column_break_2",
+  "parcel_area_sqm",
+  "notes"
+ ],
+ "fields": [
+  {
+   "description": "القرار المساحي — B.R.170",
+   "fieldname": "geotechnical_study",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Geotechnical Study",
+   "options": "Geotechnical Study",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Attach",
+   "label": "Survey Decision Document",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uploaded_by",
+   "fieldtype": "Link",
+   "label": "Uploaded By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "uploaded_on",
+   "fieldtype": "Datetime",
+   "label": "Uploaded On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Parcel Data"
+  },
+  {
+   "description": "B.R.171 — auto-extraction integration source not specified in the BRD; enter manually until that integration is confirmed",
+   "fieldname": "parcel_number",
+   "fieldtype": "Data",
+   "label": "Parcel Number"
+  },
+  {
+   "fieldname": "parcel_owner",
+   "fieldtype": "Data",
+   "label": "Parcel Owner"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "parcel_area_sqm",
+   "fieldtype": "Float",
+   "label": "Parcel Area (sqm)"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Survey Decision",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

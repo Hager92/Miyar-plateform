@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "image",
+  "taken_on",
+  "geo_location"
+ ],
+ "fields": [
+  {
+   "description": "B.R.184",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "in_list_view": 1,
+   "label": "Image",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "taken_on",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Taken On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "geo_location",
+   "fieldtype": "Geolocation",
+   "label": "Geo Location"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Borehole Photo",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC"
+}

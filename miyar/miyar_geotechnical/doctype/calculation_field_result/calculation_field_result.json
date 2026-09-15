@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "fieldname_label",
+  "value",
+  "unit",
+  "formula",
+  "formula_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "fieldname_label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Field",
+   "read_only": 1
+  },
+  {
+   "fieldname": "value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "formula",
+   "fieldtype": "Link",
+   "label": "Formula Used",
+   "options": "Business Formula",
+   "read_only": 1
+  },
+  {
+   "description": "B.R.213–214 — the Business Formula version used at computation time",
+   "fieldname": "formula_version",
+   "fieldtype": "Int",
+   "label": "Formula Version",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Calculation Field Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC"
+}

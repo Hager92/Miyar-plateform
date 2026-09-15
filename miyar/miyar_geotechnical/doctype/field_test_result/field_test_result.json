@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "test_depth_m",
+  "blow_count_n1",
+  "blow_count_n2",
+  "blow_count_n3",
+  "n_value",
+  "recovery_percent"
+ ],
+ "fields": [
+  {
+   "fieldname": "test_depth_m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Test Depth (m)",
+   "reqd": 1
+  },
+  {
+   "description": "B.R.188 — SPT blow counts",
+   "fieldname": "blow_count_n1",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N1"
+  },
+  {
+   "fieldname": "blow_count_n2",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N2"
+  },
+  {
+   "fieldname": "blow_count_n3",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N3"
+  },
+  {
+   "description": "N = N2 + N3 (standard SPT convention; not an invented formula)",
+   "fieldname": "n_value",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "N-Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recovery_percent",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Recovery (REC %)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Field Test Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC"
+}

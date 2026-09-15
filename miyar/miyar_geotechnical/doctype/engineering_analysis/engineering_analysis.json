@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "autoname": "format:EA-{geotechnical_study}",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "geotechnical_study",
+  "column_break_1",
+  "status",
+  "reviewed_by",
+  "reviewed_on",
+  "section_break_1",
+  "calculation_fields",
+  "section_break_2",
+  "analytical_fields",
+  "section_break_3",
+  "recommendations"
+ ],
+ "fields": [
+  {
+   "fieldname": "geotechnical_study",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Geotechnical Study",
+   "options": "Geotechnical Study",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nPending Consultant Review\nApproved",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reviewed_on",
+   "fieldtype": "Datetime",
+   "label": "Reviewed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Calculation Fields (deterministic, Business Formula-driven)"
+  },
+  {
+   "description": "B.R.210–214, 218 — system/engine-owned; no user can edit these rows directly",
+   "fieldname": "calculation_fields",
+   "fieldtype": "Table",
+   "label": "Calculation Fields",
+   "options": "Calculation Field Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Analytical Fields (Smart Engine)"
+  },
+  {
+   "description": "B.R.210, 215, 218 — system/engine-owned; requires Consulting Office review before the Study can progress",
+   "fieldname": "analytical_fields",
+   "fieldtype": "Table",
+   "label": "Analytical Fields",
+   "options": "Analytical Field Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Recommendations (Smart Engine)"
+  },
+  {
+   "description": "B.R.210, 216, 218 — system/engine-owned; never independently binding without Consulting Office approval (B.R.217)",
+   "fieldname": "recommendations",
+   "fieldtype": "Table",
+   "label": "Recommendations",
+   "options": "Recommendation",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Engineering Analysis",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

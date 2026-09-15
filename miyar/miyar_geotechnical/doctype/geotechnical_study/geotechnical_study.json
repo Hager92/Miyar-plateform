@@ -1,0 +1,228 @@
+{
+ "actions": [],
+ "autoname": "GEO-.YYYY.-.#####",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "test_request",
+  "column_break_1",
+  "contract",
+  "progress_stage",
+  "section_break_initial",
+  "site_boundary",
+  "estimated_area_sqm",
+  "column_break_2",
+  "structure_type",
+  "number_of_floors",
+  "section_break_notes",
+  "initial_notes",
+  "section_break_survey",
+  "survey_decision",
+  "section_break_links",
+  "exploration_plan",
+  "field_execution_plan",
+  "column_break_3",
+  "engineering_analysis",
+  "geotechnical_report"
+ ],
+ "fields": [
+  {
+   "description": "B.R.161, 164 — 1:1 with the Test Request whose service_type = دراسة جيوتقنية",
+   "fieldname": "test_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Test Request",
+   "options": "Test Request",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "test_request.contract",
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Miyar Contract",
+   "read_only": 1
+  },
+  {
+   "default": "Initial Data",
+   "description": "B.R.166 — progress indicator only; never overrides Test Request.status",
+   "fieldname": "progress_stage",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Progress Stage",
+   "options": "Initial Data\nExploration Plan\nField Execution\nLab Testing\nEngineering Analysis\nReport Issued",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_initial",
+   "fieldtype": "Section Break",
+   "label": "Initial Data (§ 4.1.4.2 — fields beyond these are not detailed in the BRD)"
+  },
+  {
+   "description": "Site boundary polygon — consumed by the Smart Engine's exploration-plan proposal",
+   "fieldname": "site_boundary",
+   "fieldtype": "Geolocation",
+   "label": "Site Boundary"
+  },
+  {
+   "fieldname": "estimated_area_sqm",
+   "fieldtype": "Float",
+   "label": "Estimated Area (sqm)"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "structure_type",
+   "fieldtype": "Data",
+   "label": "Structure Type"
+  },
+  {
+   "fieldname": "number_of_floors",
+   "fieldtype": "Int",
+   "label": "Number of Floors"
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "initial_notes",
+   "fieldtype": "Text Editor",
+   "label": "Initial Notes"
+  },
+  {
+   "fieldname": "section_break_survey",
+   "fieldtype": "Section Break",
+   "label": "Survey Decision"
+  },
+  {
+   "description": "B.R.170 — القرار المساحي, contractor-uploaded reference document",
+   "fieldname": "survey_decision",
+   "fieldtype": "Link",
+   "label": "Survey Decision",
+   "options": "Survey Decision"
+  },
+  {
+   "fieldname": "section_break_links",
+   "fieldtype": "Section Break",
+   "label": "Stage Documents (system-linked)"
+  },
+  {
+   "fieldname": "exploration_plan",
+   "fieldtype": "Link",
+   "label": "Approved Exploration Plan",
+   "options": "Exploration Plan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "field_execution_plan",
+   "fieldtype": "Link",
+   "label": "Field Execution Plan",
+   "options": "Field Execution Plan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "engineering_analysis",
+   "fieldtype": "Link",
+   "label": "Engineering Analysis",
+   "options": "Engineering Analysis",
+   "read_only": 1
+  },
+  {
+   "fieldname": "geotechnical_report",
+   "fieldtype": "Link",
+   "label": "Geotechnical Report",
+   "options": "Geotechnical Report",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Geotechnical Study",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Technical Support"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Miyar Employee"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

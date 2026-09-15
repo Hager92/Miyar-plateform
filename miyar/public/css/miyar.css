@@ -1,0 +1,58 @@
+/* Miyar brand theme for Frappe Desk — tokens reverse-engineered from the
+   reference design (miyar-platform.vercel.app): IBM Plex Sans Arabic,
+   brand green #1e6355, 4px-radius scale. */
+
+:root {
+	--miyar-brand-50: #eef6f4;
+	--miyar-brand-500: #1e6355;
+	--miyar-brand-600: #175044;
+	--miyar-brand-700: #123f36;
+	--miyar-danger: #d92c20;
+	--miyar-ok: #069454;
+	--miyar-warn: #dc6803;
+	--miyar-info: #156fee;
+}
+
+body,
+.desk-body {
+	font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", -apple-system, system-ui, sans-serif;
+}
+
+.navbar,
+.page-head {
+	background-color: var(--miyar-brand-500) !important;
+}
+
+.navbar .navbar-brand,
+.navbar a,
+.navbar .app-switcher-dropdown svg,
+.page-head .title-text {
+	color: #fff !important;
+}
+
+.btn-primary {
+	background-color: var(--miyar-brand-500);
+	border-color: var(--miyar-brand-600);
+}
+
+.btn-primary:hover {
+	background-color: var(--miyar-brand-600);
+}
+
+.indicator-pill.green,
+.indicator.green {
+	background-color: rgba(6, 148, 84, 0.15);
+	color: var(--miyar-ok);
+}
+
+.indicator-pill.red,
+.indicator.red {
+	background-color: rgba(217, 44, 32, 0.15);
+	color: var(--miyar-danger);
+}
+
+.indicator-pill.orange,
+.indicator.orange {
+	background-color: rgba(220, 103, 3, 0.15);
+	color: var(--miyar-warn);
+}

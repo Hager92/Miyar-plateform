@@ -1,0 +1,288 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "geotechnical_study",
+  "field_execution_plan",
+  "column_break_1",
+  "status",
+  "is_added_or_modified",
+  "justification_note",
+  "section_break_location",
+  "planned_location",
+  "planned_depth_m",
+  "column_break_2",
+  "operational_location",
+  "deviation_meters",
+  "is_out_of_location",
+  "out_of_location_reason",
+  "section_break_execution",
+  "execution_date",
+  "drilling_method",
+  "column_break_3",
+  "rig_type",
+  "diameter_mm",
+  "casing_depth_m",
+  "water_table_m",
+  "executed_by",
+  "section_break_photos",
+  "photos",
+  "section_break_completion",
+  "actual_depth_m",
+  "non_reach_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "geotechnical_study",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Geotechnical Study",
+   "options": "Geotechnical Study",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "field_execution_plan",
+   "fieldtype": "Link",
+   "label": "Field Execution Plan",
+   "options": "Field Execution Plan",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Ready",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Ready\nIn Progress\nCompleted",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "B.R.178 — set when this Borehole was added or its planned location/depth modified after Exploration Plan approval",
+   "fieldname": "is_added_or_modified",
+   "fieldtype": "Check",
+   "label": "Added / Modified After Approval"
+  },
+  {
+   "depends_on": "is_added_or_modified",
+   "description": "B.R.178, 179",
+   "fieldname": "justification_note",
+   "fieldtype": "Small Text",
+   "label": "Justification Note",
+   "mandatory_depends_on": "is_added_or_modified"
+  },
+  {
+   "fieldname": "section_break_location",
+   "fieldtype": "Section Break",
+   "label": "Location & Depth"
+  },
+  {
+   "description": "B.R.177 — Consultant-approved, read only",
+   "fieldname": "planned_location",
+   "fieldtype": "Geolocation",
+   "label": "Planned Location",
+   "read_only": 1
+  },
+  {
+   "description": "B.R.173, 177 — Consultant-approved, read only",
+   "fieldname": "planned_depth_m",
+   "fieldtype": "Float",
+   "label": "Planned Depth (m)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "B.R.177 — Lab-set at the actual field position",
+   "fieldname": "operational_location",
+   "fieldtype": "Geolocation",
+   "label": "Operational Location"
+  },
+  {
+   "description": "B.R.183 — auto-computed distance between planned and operational location",
+   "fieldname": "deviation_meters",
+   "fieldtype": "Float",
+   "label": "Location Deviation (m)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "description": "B.R.183 — deviation exceeds the configured tolerance (default 3m)",
+   "fieldname": "is_out_of_location",
+   "fieldtype": "Check",
+   "label": "Out of Location",
+   "read_only": 1
+  },
+  {
+   "depends_on": "is_out_of_location",
+   "description": "B.R.183",
+   "fieldname": "out_of_location_reason",
+   "fieldtype": "Small Text",
+   "label": "Out-of-Location Reason",
+   "mandatory_depends_on": "is_out_of_location"
+  },
+  {
+   "fieldname": "section_break_execution",
+   "fieldtype": "Section Break",
+   "label": "Execution Details"
+  },
+  {
+   "fieldname": "execution_date",
+   "fieldtype": "Date",
+   "label": "Execution Date"
+  },
+  {
+   "description": "B.R.185",
+   "fieldname": "drilling_method",
+   "fieldtype": "Link",
+   "label": "Drilling Method",
+   "options": "Reference Data Item"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rig_type",
+   "fieldtype": "Data",
+   "label": "Rig Type"
+  },
+  {
+   "fieldname": "diameter_mm",
+   "fieldtype": "Float",
+   "label": "Borehole Diameter (mm)"
+  },
+  {
+   "fieldname": "casing_depth_m",
+   "fieldtype": "Float",
+   "label": "Casing Depth (m)"
+  },
+  {
+   "fieldname": "water_table_m",
+   "fieldtype": "Float",
+   "label": "Water Table Level (m)"
+  },
+  {
+   "fieldname": "executed_by",
+   "fieldtype": "Link",
+   "label": "Executed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "section_break_photos",
+   "fieldtype": "Section Break",
+   "label": "Photos"
+  },
+  {
+   "description": "B.R.184",
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "Borehole Photo"
+  },
+  {
+   "fieldname": "section_break_completion",
+   "fieldtype": "Section Break",
+   "label": "Completion"
+  },
+  {
+   "description": "B.R.185",
+   "fieldname": "actual_depth_m",
+   "fieldtype": "Float",
+   "label": "Actual Depth Executed (m)"
+  },
+  {
+   "description": "B.R.191 — required if the approved planned depth was not reached",
+   "fieldname": "non_reach_reason",
+   "fieldtype": "Small Text",
+   "label": "Non-Reach Reason"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "group": "Soil Layers",
+   "link_doctype": "Soil Layer",
+   "link_fieldname": "borehole"
+  }
+ ],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Borehole",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Employee",
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

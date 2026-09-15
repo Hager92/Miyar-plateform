@@ -1,0 +1,265 @@
+{
+ "actions": [],
+ "autoname": "TR-.YYYY.-.#####",
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contract",
+  "project",
+  "column_break_1",
+  "contractor",
+  "laboratory",
+  "consulting_office",
+  "section_break_1",
+  "service_type",
+  "status",
+  "payment_status",
+  "section_break_2",
+  "test_items",
+  "section_break_3",
+  "schedule_slots",
+  "section_break_4",
+  "site_location",
+  "rejection_reason",
+  "section_break_5",
+  "status_history",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract",
+   "options": "Miyar Contract",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "contract.contractor",
+   "fieldname": "contractor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contractor",
+   "options": "Entity",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.laboratory",
+   "fieldname": "laboratory",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Laboratory",
+   "options": "Entity",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "contract.consulting_office",
+   "fieldname": "consulting_office",
+   "fieldtype": "Link",
+   "label": "Consulting Office",
+   "options": "Entity",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "B.R.136 — one Service Type per Test Request",
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Service Type",
+   "options": "Reference Data Item",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nExecution Planning\nPending Laboratory Decision\nAccepted\nRejected\nIn Progress\nCompleted\nCancelled",
+   "read_only": 1,
+   "reqd": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "default": "Not Required",
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Not Required\nPaid\nPending",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Test Items"
+  },
+  {
+   "description": "B.R.133, 137 — max 10 (configurable)",
+   "fieldname": "test_items",
+   "fieldtype": "Table",
+   "label": "Test Items",
+   "options": "Test Request Item",
+   "reqd": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Proposed Schedule Slots"
+  },
+  {
+   "description": "B.R.138 — 3 slots by default; earliest slot must be ≥ 48h from send time (configurable)",
+   "fieldname": "schedule_slots",
+   "fieldtype": "Table",
+   "label": "Proposed Schedule Slots",
+   "options": "Schedule Slot",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Site & Decision"
+  },
+  {
+   "fieldname": "site_location",
+   "fieldtype": "Geolocation",
+   "label": "Site Location"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Rejected\"",
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason",
+   "mandatory_depends_on": "eval:doc.status==\"Rejected\"",
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break",
+   "label": "Status History"
+  },
+  {
+   "fieldname": "status_history",
+   "fieldtype": "Table",
+   "label": "Status History",
+   "options": "Test Status History",
+   "read_only": 1,
+   "allow_on_submit": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Test Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Testing",
+ "name": "Test Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Technical Support"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Miyar Employee"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

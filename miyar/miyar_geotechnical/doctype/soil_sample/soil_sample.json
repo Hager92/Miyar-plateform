@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "soil_layer",
+  "sample_no",
+  "column_break_0",
+  "material_type",
+  "mandatory_tests_status",
+  "section_break_1",
+  "field_classification",
+  "lab_classification",
+  "section_break_2",
+  "lab_test_results",
+  "section_break_3",
+  "chemical_test_results",
+  "incomplete_reason"
+ ],
+ "fields": [
+  {
+   "description": "Standalone (not a child table) so its own Lab/Chemical Test Results can be independently loaded — Frappe does not auto-load a child table nested more than one level deep",
+   "fieldname": "soil_layer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Soil Layer",
+   "options": "Soil Layer",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "sample_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sample No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Material Type",
+   "options": "Soil\nRock",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "description": "B.R.197–198 — computed from mandatory Lab Test Results being filled",
+   "fieldname": "mandatory_tests_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Mandatory Tests",
+   "options": "Pending\nComplete",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "description": "B.R.199 — field (حقلي) USCS estimate, retained for comparison after lab override",
+   "fieldname": "field_classification",
+   "fieldtype": "Data",
+   "label": "Field Classification (USCS)"
+  },
+  {
+   "description": "B.R.199 — final USCS classification, overrides the field estimate",
+   "fieldname": "lab_classification",
+   "fieldtype": "Data",
+   "label": "Lab Classification (USCS, final)"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break",
+   "label": "Lab Tests"
+  },
+  {
+   "fieldname": "lab_test_results",
+   "fieldtype": "Table",
+   "label": "Lab Test Results",
+   "options": "Lab Test Result"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break",
+   "label": "Chemical Tests"
+  },
+  {
+   "description": "B.R.204 — at least one Sample per Study must carry Chemical Test Results",
+   "fieldname": "chemical_test_results",
+   "fieldtype": "Table",
+   "label": "Chemical Test Results",
+   "options": "Chemical Test Result"
+  },
+  {
+   "description": "B.R.206",
+   "fieldname": "incomplete_reason",
+   "fieldtype": "Small Text",
+   "label": "Incomplete Reason"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Soil Sample",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Consulting Office"
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Contractor"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

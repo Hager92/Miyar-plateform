@@ -1,0 +1,311 @@
+{
+ "app": "miyar",
+ "charts": [],
+ "content": "[{\"id\":\"miyar-header\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 16px;\\\">منصة معيار — Miyar</span>\",\"col\":12}},{\"id\":\"miyar-core-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Core\",\"col\":4}},{\"id\":\"miyar-testing-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Testing\",\"col\":4}},{\"id\":\"miyar-lab-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Lab\",\"col\":4}},{\"id\":\"miyar-geo-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Geotechnical\",\"col\":4}},{\"id\":\"miyar-ai-card\",\"type\":\"card\",\"data\":{\"card_name\":\"AI Engine\",\"col\":4}},{\"id\":\"miyar-reports-card\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "tool",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Miyar",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Core",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Entity",
+   "link_count": 0,
+   "link_to": "Entity",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Principal Delegate",
+   "link_count": 0,
+   "link_to": "Principal Delegate",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Delegation",
+   "link_count": 0,
+   "link_to": "Delegation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Entity Rating",
+   "link_count": 0,
+   "link_to": "Entity Rating",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reference Data Item",
+   "link_count": 0,
+   "link_to": "Reference Data Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Testing",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Miyar Contract",
+   "link_count": 0,
+   "link_to": "Miyar Contract",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Test Request",
+   "link_count": 0,
+   "link_to": "Test Request",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Lab",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Lab Test Catalog Item",
+   "link_count": 0,
+   "link_to": "Lab Test Catalog Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Geotechnical",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Geotechnical Study",
+   "link_count": 0,
+   "link_to": "Geotechnical Study",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Exploration Plan",
+   "link_count": 0,
+   "link_to": "Exploration Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Field Execution Plan",
+   "link_count": 0,
+   "link_to": "Field Execution Plan",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Borehole",
+   "link_count": 0,
+   "link_to": "Borehole",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Engineering Analysis",
+   "link_count": 0,
+   "link_to": "Engineering Analysis",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Geotechnical Report",
+   "link_count": 0,
+   "link_to": "Geotechnical Report",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compliance Rule",
+   "link_count": 0,
+   "link_to": "Compliance Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Business Formula",
+   "link_count": 0,
+   "link_to": "Business Formula",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AI Engine",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AI Engine Log",
+   "link_count": 0,
+   "link_to": "AI Engine Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Test Request SLA Aging",
+   "link_count": 0,
+   "link_to": "Test Request SLA Aging",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Lab Performance",
+   "link_count": 0,
+   "link_to": "Lab Performance",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Geotechnical Pipeline Funnel",
+   "link_count": 0,
+   "link_to": "Geotechnical Pipeline Funnel",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Core",
+ "name": "Miyar",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Entity",
+   "link_to": "Entity",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Test Request",
+   "link_to": "Test Request",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Delegation",
+   "link_to": "Delegation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "List",
+   "label": "Lab Test Catalog Item",
+   "link_to": "Lab Test Catalog Item",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Miyar"
+}

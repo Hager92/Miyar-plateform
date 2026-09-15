@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "formula_name",
+  "output_fieldname",
+  "column_break_1",
+  "unit",
+  "version",
+  "is_active",
+  "section_break_1",
+  "input_variables",
+  "expression",
+  "effective_from"
+ ],
+ "fields": [
+  {
+   "description": "B.R.212–214 — not an SBC 303 equation supplied by the BRD; a placeholder registry entry the System Admin configures",
+   "fieldname": "formula_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Formula Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "output_fieldname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Output Field Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "description": "B.R.213 — auto-incremented on every edit; already-computed results keep the version they were computed under",
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Version",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Definition"
+  },
+  {
+   "description": "Comma-separated variable names this formula expects in its input context",
+   "fieldname": "input_variables",
+   "fieldtype": "Data",
+   "label": "Input Variables"
+  },
+  {
+   "description": "Restricted arithmetic expression over the Input Variables above (safe-evaluated, never Python eval)",
+   "fieldname": "expression",
+   "fieldtype": "Code",
+   "label": "Expression",
+   "reqd": 1
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective From",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Business Formula",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Miyar Consulting Office"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

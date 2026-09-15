@@ -1,0 +1,134 @@
+{
+ "actions": [],
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "test_type",
+  "column_break_1",
+  "version",
+  "is_active",
+  "section_break_1",
+  "comparison_operator",
+  "min_value",
+  "max_value",
+  "column_break_2",
+  "sbc_clause_reference",
+  "effective_from"
+ ],
+ "fields": [
+  {
+   "description": "B.R.205 — the Lab/Chemical Test whose result this rule evaluates",
+   "fieldname": "test_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Test",
+   "options": "Reference Data Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "B.R.213 — auto-incremented on every edit; already-evaluated results keep the version they were evaluated under",
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Version",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_standard_filter": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Threshold (SBC 303 reference — clause not published in the source BRD)"
+  },
+  {
+   "fieldname": "comparison_operator",
+   "fieldtype": "Select",
+   "label": "Comparison",
+   "options": ">=\n<=\n>\n<\n==\nbetween",
+   "reqd": 1
+  },
+  {
+   "fieldname": "min_value",
+   "fieldtype": "Float",
+   "label": "Min Value"
+  },
+  {
+   "fieldname": "max_value",
+   "fieldtype": "Float",
+   "label": "Max Value"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "§ 13 recommendation — SBC 303 clause/page linkage for traceability",
+   "fieldname": "sbc_clause_reference",
+   "fieldtype": "Data",
+   "label": "SBC Clause Reference"
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Date",
+   "label": "Effective From",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Geotechnical",
+ "name": "Compliance Rule",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Miyar Consulting Office"
+  },
+  {
+   "read": 1,
+   "role": "Miyar Laboratory"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

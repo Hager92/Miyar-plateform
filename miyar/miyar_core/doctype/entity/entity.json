@@ -1,0 +1,240 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-15 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "entity_type",
+  "cr_number",
+  "entity_name",
+  "column_break_1",
+  "principal_delegate",
+  "account_status",
+  "section_break_profile",
+  "logo",
+  "description",
+  "column_break_2",
+  "geo_location",
+  "section_break_contact",
+  "contact_channels",
+  "column_break_3",
+  "specializations",
+  "section_break_directory",
+  "average_rating",
+  "review_count",
+  "column_break_4",
+  "is_visible_in_directory",
+  "has_active_test"
+ ],
+ "fields": [
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entity Type",
+   "options": "Contractor\nLaboratory\nConsulting Office\nSupervisory Authority",
+   "reqd": 1
+  },
+  {
+   "description": "السجل التجاري — Commercial Registration number",
+   "fieldname": "cr_number",
+   "fieldtype": "Data",
+   "label": "Commercial Registration No.",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "entity_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Entity Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "System-set once a Principal Delegate is registered for this entity",
+   "fieldname": "principal_delegate",
+   "fieldtype": "Link",
+   "label": "Principal Delegate",
+   "options": "Principal Delegate",
+   "read_only": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "account_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Account Status",
+   "options": "Active\nSuspended",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_profile",
+   "fieldtype": "Section Break",
+   "label": "Directory Profile"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "geo_location",
+   "fieldtype": "Geolocation",
+   "label": "Geographic Location"
+  },
+  {
+   "fieldname": "section_break_contact",
+   "fieldtype": "Section Break",
+   "label": "Contact & Specializations"
+  },
+  {
+   "fieldname": "contact_channels",
+   "fieldtype": "Table",
+   "label": "Contact Channels",
+   "options": "Miyar Contact Channel"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "specializations",
+   "fieldtype": "Table MultiSelect",
+   "label": "Specializations",
+   "options": "Miyar Entity Specialization"
+  },
+  {
+   "fieldname": "section_break_directory",
+   "fieldtype": "Section Break",
+   "label": "Directory Ranking (computed)"
+  },
+  {
+   "description": "B.R.124, B.R.129 — recomputed whenever an Entity Rating is saved/cancelled",
+   "fieldname": "average_rating",
+   "fieldtype": "Float",
+   "label": "Average Rating",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_count",
+   "fieldtype": "Int",
+   "label": "Review Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "B.R.130 — (account_status == Active) AND (entity_type != Laboratory OR has_active_test == 1)",
+   "fieldname": "is_visible_in_directory",
+   "fieldtype": "Check",
+   "label": "Directory Visible",
+   "read_only": 1
+  },
+  {
+   "description": "B.R.130 — Laboratory only, set from active Test Request activity",
+   "fieldname": "has_active_test",
+   "fieldtype": "Check",
+   "label": "Has At Least One Active Test",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-15 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Miyar Core",
+ "name": "Entity",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Miyar Technical Support"
+  },
+  {
+   "read": 1,
+   "role": "Miyar Supervisory Authority"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Miyar Contractor",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Miyar Laboratory",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Miyar Consulting Office",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
