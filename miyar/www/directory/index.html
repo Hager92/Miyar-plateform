@@ -1,0 +1,129 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/miyar/css/miyar.css">
+<style>
+	.miyar-directory { direction: rtl; font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif; }
+	.miyar-directory h1 { color: var(--miyar-brand-700, #123f36); margin-bottom: 4px; }
+	.miyar-directory .subtitle { color: #667085; margin-bottom: 24px; }
+	.miyar-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+	.miyar-filters input, .miyar-filters select {
+		padding: 8px 12px; border: 1px solid #d0d5dd; border-radius: 6px; font-size: 14px;
+	}
+	.miyar-filters input[name="search"] { flex: 1; min-width: 220px; }
+	.miyar-filters button {
+		background: var(--miyar-brand-500, #1e6355); color: #fff; border: none;
+		padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 14px;
+	}
+	.miyar-filters button:hover { background: var(--miyar-brand-600, #175044); }
+	#miyar-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+	.miyar-card {
+		border: 1px solid #eaecf0; border-radius: 10px; padding: 16px; background: #fff;
+		box-shadow: 0 1px 2px rgba(16,24,40,0.05); text-decoration: none; color: inherit; display: block;
+	}
+	.miyar-card:hover { border-color: var(--miyar-brand-500, #1e6355); box-shadow: 0 4px 10px rgba(16,24,40,0.08); }
+	.miyar-card .miyar-type-badge {
+		display: inline-block; font-size: 11px; background: var(--miyar-brand-50, #eef6f4);
+		color: var(--miyar-brand-700, #123f36); padding: 2px 8px; border-radius: 12px; margin-bottom: 8px;
+	}
+	.miyar-card h3 { margin: 4px 0; font-size: 16px; }
+	.miyar-card .miyar-rating { color: var(--miyar-warn, #dc6803); font-size: 13px; }
+	.miyar-card .miyar-desc { color: #667085; font-size: 13px; margin-top: 6px; min-height: 34px; }
+	.miyar-card .miyar-specs { margin-top: 8px; }
+	.miyar-card .miyar-spec-chip {
+		display: inline-block; font-size: 11px; background: #f2f4f7; color: #344054;
+		padding: 2px 8px; border-radius: 10px; margin-inline-end: 4px; margin-top: 4px;
+	}
+	.miyar-empty { color: #667085; padding: 40px; text-align: center; }
+	.miyar-loading { opacity: 0.5; }
+</style>
+
+<div class="miyar-directory">
+	<h1>{{ title }}</h1>
+	<div class="subtitle">استعرض المنشآت المعتمدة على منصة معيار — مقاولون، مختبرات، مكاتب استشارية — مع تقييماتها.</div>
+
+	<form class="miyar-filters" id="miyar-directory-filters">
+		<input type="text" name="search" placeholder="ابحث باسم المنشأة...">
+		<select name="entity_type">
+			<option value="">كل الأنواع</option>
+			{% for t in entity_types %}
+			<option value="{{ t }}">{{ t }}</option>
+			{% endfor %}
+		</select>
+		<select name="min_rating">
+			<option value="">كل التقييمات</option>
+			<option value="4">4 نجوم فأكثر</option>
+			<option value="3">3 نجوم فأكثر</option>
+			<option value="2">نجمتان فأكثر</option>
+		</select>
+		<button type="submit">بحث</button>
+	</form>
+
+	<div id="miyar-directory-count" style="color:#667085; margin-bottom:12px; font-size: 13px;">
+		{{ total }} منشأة
+	</div>
+
+	<div id="miyar-directory-grid">
+		{% include "miyar/www/directory/_cards.html" %}
+	</div>
+</div>
+
+<script>
+(function () {
+	const form = document.getElementById("miyar-directory-filters");
+	const grid = document.getElementById("miyar-directory-grid");
+	const count = document.getElementById("miyar-directory-count");
+
+	function cardHtml(e) {
+		const rating = ((e.average_rating || 0) * 5).toFixed(1);
+		const specs = (e.specializations || []).slice(0, 3).map(function (s) {
+			return '<span class="miyar-spec-chip">' + (s.label_ar || s.label_en || s.code) + '</span>';
+		}).join("");
+		return '' +
+			'<a class="miyar-card" href="/directory/entity?name=' + encodeURIComponent(e.name) + '">' +
+			'<span class="miyar-type-badge">' + e.entity_type + '</span>' +
+			'<h3>' + e.entity_name + '</h3>' +
+			'<div class="miyar-rating">★ ' + rating + '/5 (' + (e.review_count || 0) + ' تقييم)</div>' +
+			'<div class="miyar-desc">' + (e.description || "") + '</div>' +
+			'<div class="miyar-specs">' + specs + '</div>' +
+			'</a>';
+	}
+
+	function search() {
+		const params = new URLSearchParams();
+		const data = new FormData(form);
+		for (const [k, v] of data.entries()) {
+			if (!v) continue;
+			// average_rating is stored as a 0-1 fraction (Rating fieldtype); the
+			// filter UI shows "stars out of 5" for readability, so convert here.
+			params.set(k, k === "min_rating" ? (parseFloat(v) / 5) : v);
+		}
+		grid.classList.add("miyar-loading");
+		fetch("/api/method/miyar.miyar_core.api.directory.get_directory?" + params.toString())
+			.then(function (r) { return r.json(); })
+			.then(function (data) {
+				const result = data.message;
+				count.textContent = result.total + " منشأة";
+				if (!result.results.length) {
+					grid.innerHTML = '<div class="miyar-empty">لا توجد نتائج مطابقة.</div>';
+					return;
+				}
+				grid.innerHTML = result.results.map(cardHtml).join("");
+			})
+			.finally(function () { grid.classList.remove("miyar-loading"); });
+	}
+
+	form.addEventListener("submit", function (ev) {
+		ev.preventDefault();
+		search();
+	});
+	form.querySelectorAll("select").forEach(function (el) {
+		el.addEventListener("change", search);
+	});
+})();
+</script>
+{% endblock %}

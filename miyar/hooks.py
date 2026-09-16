@@ -132,6 +132,7 @@ after_migrate = [
 
 permission_query_conditions = {
 	"Miyar Contract": "miyar.permissions.get_contract_permission_query_conditions",
+	"Miyar Invoice": "miyar.permissions.get_invoice_permission_query_conditions",
 	"Test Request": "miyar.permissions.get_test_request_permission_query_conditions",
 	"Delegation": "miyar.permissions.get_delegation_permission_query_conditions",
 	"Geotechnical Study": "miyar.permissions.get_geotechnical_study_permission_query_conditions",
@@ -140,6 +141,11 @@ permission_query_conditions = {
 	"Borehole": "miyar.permissions.get_borehole_permission_query_conditions",
 	"Engineering Analysis": "miyar.permissions.get_engineering_analysis_permission_query_conditions",
 	"Geotechnical Report": "miyar.permissions.get_geotechnical_report_permission_query_conditions",
+}
+
+has_permission = {
+	"Entity": "miyar.permissions.has_entity_permission",
+	"Miyar Invoice": "miyar.permissions.has_invoice_permission",
 }
 
 # Document Events

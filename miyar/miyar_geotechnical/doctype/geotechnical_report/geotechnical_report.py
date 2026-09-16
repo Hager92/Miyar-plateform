@@ -18,6 +18,17 @@ class GeotechnicalReport(Document):
 		frappe.get_doc("Geotechnical Study", self.geotechnical_study).refresh_progress_stage()
 
 
+def _current_template_version():
+	"""B.R.222 — 'تطبيق الإصدار الساري من القالب عند توليد التقرير': stamp the
+	name of the DocType's current default (non-disabled) Print Format, so a
+	later change to that Print Format never retroactively changes what an
+	already-issued Report claims it was rendered with."""
+	default_format = frappe.db.get_value("DocType", "Geotechnical Report", "default_print_format")
+	if default_format and not frappe.db.get_value("Print Format", default_format, "disabled"):
+		return default_format
+	return None
+
+
 def generate_report(geotechnical_study):
 	"""B.R.223 — auto-triggered the moment the Consulting Office approves the
 	Engineering Analysis. Idempotent: does nothing if already generated."""
@@ -30,6 +41,7 @@ def generate_report(geotechnical_study):
 			"geotechnical_study": geotechnical_study,
 			"generation_trigger": "Auto on Consultant Approval",
 			"generated_on": now_datetime(),
+			"template_version": _current_template_version(),
 		}
 	)
 	report.insert(ignore_permissions=True)

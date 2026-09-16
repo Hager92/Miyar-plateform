@@ -20,6 +20,20 @@ def get_user_entities(user):
 	)
 
 
+def has_entity_permission(doc, ptype, user):
+	"""B.R.126 — an Entity manages its OWN profile: write/create access is scoped to
+	the Principal Delegate of that specific Entity, not to anyone holding the
+	matching role. (Read stays open to any logged-in user via the 'All' role,
+	unaffected by this hook — it only ever narrows write/create.)"""
+	if ptype not in ("write", "create", "delete"):
+		return True
+	if _user_has_unrestricted_access(user):
+		return True
+	if doc.is_new():
+		return True  # creation is gated by the role permission itself (B.R. registration flow)
+	return doc.name in get_user_entities(user)
+
+
 def get_contract_permission_query_conditions(user=None):
 	user = user or frappe.session.user
 	if _user_has_unrestricted_access(user):
@@ -33,6 +47,28 @@ def get_contract_permission_query_conditions(user=None):
 		f"or `tabMiyar Contract`.laboratory in ({entity_list}) "
 		f"or `tabMiyar Contract`.consulting_office in ({entity_list}))"
 	)
+
+
+def get_invoice_permission_query_conditions(user=None):
+	user = user or frappe.session.user
+	if _user_has_unrestricted_access(user):
+		return ""
+	entities = get_user_entities(user)
+	if not entities:
+		return "1=0"
+	entity_list = ", ".join(frappe.db.escape(e) for e in entities)
+	return f"(`tabMiyar Invoice`.contractor in ({entity_list}) or `tabMiyar Invoice`.laboratory in ({entity_list}))"
+
+
+def has_invoice_permission(doc, ptype, user):
+	"""Only the contractor being billed (write, to record payment) or the
+	laboratory being paid (read-only) may touch an invoice."""
+	if _user_has_unrestricted_access(user):
+		return True
+	entities = set(get_user_entities(user))
+	if ptype == "write":
+		return doc.contractor in entities
+	return bool(entities & {doc.contractor, doc.laboratory})
 
 
 def get_test_request_permission_query_conditions(user=None):

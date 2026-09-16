@@ -153,5 +153,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "track_changes": 1
+ "track_changes": 1,
+ "default_print_format": "Geotechnical Report Template"
 }

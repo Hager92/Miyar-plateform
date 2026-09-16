@@ -19,6 +19,7 @@
   "test_items",
   "section_break_3",
   "schedule_slots",
+  "attachments",
   "section_break_4",
   "site_location",
   "rejection_reason",
@@ -139,6 +140,12 @@
    "allow_on_submit": 1
   },
   {
+   "description": "B.R.133 — المرفقات (إن وجدت)",
+   "fieldname": "attachments",
+   "fieldtype": "Attach",
+   "label": "Attachments (if any)"
+  },
+  {
    "fieldname": "section_break_4",
    "fieldtype": "Section Break",
    "label": "Site & Decision"
@@ -236,7 +243,8 @@
    "report": 1,
    "role": "Miyar Contractor",
    "submit": 1,
-   "write": 1
+   "write": 1,
+   "share": 1
   },
   {
    "email": 1,
@@ -244,7 +252,9 @@
    "read": 1,
    "report": 1,
    "role": "Miyar Laboratory",
-   "write": 1
+   "write": 1,
+   "submit": 1,
+   "share": 1
   },
   {
    "email": 1,
@@ -252,11 +262,16 @@
    "read": 1,
    "report": 1,
    "role": "Miyar Consulting Office",
-   "write": 1
+   "write": 1,
+   "submit": 1,
+   "share": 1
   },
   {
    "read": 1,
-   "role": "Miyar Employee"
+   "role": "Miyar Employee",
+   "write": 1,
+   "submit": 1,
+   "share": 1
   }
  ],
  "sort_field": "creation",

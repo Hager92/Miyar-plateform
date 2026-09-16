@@ -18,15 +18,13 @@ body,
 	font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", -apple-system, system-ui, sans-serif;
 }
 
-.navbar,
-.page-head {
+.navbar {
 	background-color: var(--miyar-brand-500) !important;
 }
 
 .navbar .navbar-brand,
 .navbar a,
-.navbar .app-switcher-dropdown svg,
-.page-head .title-text {
+.navbar .app-switcher-dropdown svg {
 	color: #fff !important;
 }
 

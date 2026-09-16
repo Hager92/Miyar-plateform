@@ -1,0 +1,16 @@
+{% if not entities %}
+<div class="miyar-empty">لا توجد منشآت لعرضها حالياً.</div>
+{% endif %}
+{% for e in entities %}
+<a class="miyar-card" href="/directory/entity?name={{ e.name | urlencode }}">
+	<span class="miyar-type-badge">{{ e.entity_type }}</span>
+	<h3>{{ e.entity_name }}</h3>
+	<div class="miyar-rating">★ {{ "%.1f"|format((e.average_rating or 0) * 5) }}/5 ({{ e.review_count or 0 }} تقييم)</div>
+	<div class="miyar-desc">{{ e.description or "" }}</div>
+	<div class="miyar-specs">
+		{% for s in (e.specializations or [])[:3] %}
+		<span class="miyar-spec-chip">{{ s.label_ar or s.label_en or s.code }}</span>
+		{% endfor %}
+	</div>
+</a>
+{% endfor %}

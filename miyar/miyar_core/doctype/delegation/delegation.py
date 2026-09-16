@@ -46,14 +46,18 @@ class Delegation(Document):
 		)
 
 	def on_submit(self):
-		if self.status == "Active":
-			self.grant_employee_role()
+		# Grant the role regardless of status: an Indirect delegation's target needs
+		# baseline "Miyar Employee" role permission just to be able to call accept()/
+		# reject() at all — Frappe checks doctype-level role permission before running
+		# any whitelisted method, before this record's own row-level access (DocShare/
+		# permission_query_conditions) is even relevant. Row-level scoping still comes
+		# from those, not from holding the role itself.
+		self.grant_employee_role()
 		if self.delegation_type == "Indirect":
 			self._notify([self.delegated_to], "You have been delegated on a Test Request — please accept or reject")
 
 	def on_update_after_submit(self):
-		if self.status == "Active":
-			self.grant_employee_role()
+		self.grant_employee_role()
 
 	def grant_employee_role(self):
 		"""So a delegated user without their own Principal Delegate access can be

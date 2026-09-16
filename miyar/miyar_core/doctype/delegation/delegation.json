@@ -177,14 +177,18 @@
    "report": 1,
    "role": "Miyar Principal Delegate",
    "submit": 1,
-   "write": 1
+   "write": 1,
+   "share": 1
   },
   {
    "email": 1,
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "Miyar Employee"
+   "role": "Miyar Employee",
+   "write": 1,
+   "submit": 1,
+   "share": 1
   }
  ],
  "sort_field": "creation",

@@ -1,0 +1,126 @@
+{% extends "templates/web.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/miyar/css/miyar.css">
+<style>
+	.miyar-profile { direction: rtl; font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif; }
+	.miyar-back { color: var(--miyar-brand-500, #1e6355); text-decoration: none; font-size: 13px; }
+	.miyar-profile-header { display: flex; gap: 20px; align-items: center; margin: 16px 0 20px; }
+	.miyar-profile-header img { width: 88px; height: 88px; border-radius: 12px; object-fit: cover; border: 1px solid #eaecf0; }
+	.miyar-profile-header .miyar-logo-placeholder {
+		width: 88px; height: 88px; border-radius: 12px; background: var(--miyar-brand-50, #eef6f4);
+		display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--miyar-brand-500, #1e6355);
+	}
+	.miyar-type-badge {
+		display: inline-block; font-size: 12px; background: var(--miyar-brand-50, #eef6f4);
+		color: var(--miyar-brand-700, #123f36); padding: 2px 10px; border-radius: 12px;
+	}
+	.miyar-profile-header h1 { margin: 6px 0 4px; }
+	.miyar-rating-line { color: var(--miyar-warn, #dc6803); font-size: 15px; }
+	.miyar-section { margin-bottom: 28px; }
+	.miyar-section h2 { font-size: 17px; border-bottom: 2px solid #eaecf0; padding-bottom: 6px; margin-bottom: 12px; }
+	.miyar-contacts, .miyar-specs { display: flex; flex-wrap: wrap; gap: 8px; }
+	.miyar-chip { background: #f2f4f7; color: #344054; padding: 4px 12px; border-radius: 14px; font-size: 13px; }
+	table.miyar-catalog { width: 100%; border-collapse: collapse; }
+	table.miyar-catalog th, table.miyar-catalog td { border: 1px solid #eaecf0; padding: 8px 10px; font-size: 14px; text-align: right; }
+	table.miyar-catalog th { background: #f9fafb; }
+	.miyar-review { border: 1px solid #eaecf0; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; }
+	.miyar-review .miyar-rating-line { font-size: 13px; }
+	.miyar-empty { color: #667085; }
+</style>
+
+<div class="miyar-profile">
+	<a class="miyar-back" href="/directory">← العودة إلى دليل المنشآت</a>
+
+	<div class="miyar-profile-header">
+		{% if profile.logo %}
+		<img src="{{ profile.logo }}" alt="{{ profile.entity_name }}">
+		{% else %}
+		<div class="miyar-logo-placeholder">{{ profile.entity_name[0] }}</div>
+		{% endif %}
+		<div>
+			<span class="miyar-type-badge">{{ profile.entity_type }}</span>
+			<h1>{{ profile.entity_name }}</h1>
+			<div class="miyar-rating-line">★ {{ "%.1f"|format((profile.average_rating or 0) * 5) }}/5 ({{ profile.review_count or 0 }} تقييم)</div>
+		</div>
+	</div>
+
+	{% if profile.description %}
+	<div class="miyar-section">
+		<h2>نبذة</h2>
+		<p>{{ profile.description }}</p>
+	</div>
+	{% endif %}
+
+	{% if profile.specializations %}
+	<div class="miyar-section">
+		<h2>التخصصات</h2>
+		<div class="miyar-specs">
+			{% for s in profile.specializations %}
+			<span class="miyar-chip">{{ s.label_ar or s.label_en or s.code }}</span>
+			{% endfor %}
+		</div>
+	</div>
+	{% endif %}
+
+	{% if profile.contact_channels %}
+	<div class="miyar-section">
+		<h2>التواصل</h2>
+		<div class="miyar-contacts">
+			{% for c in profile.contact_channels %}
+			<span class="miyar-chip">{{ c.channel_type }}: {{ c.value }}</span>
+			{% endfor %}
+		</div>
+	</div>
+	{% endif %}
+
+	{% if profile.entity_type == "Laboratory" %}
+	<div class="miyar-section">
+		<h2>قائمة الاختبارات والأسعار الأساسية</h2>
+		{% if profile.test_catalog %}
+		<table class="miyar-catalog">
+			<thead>
+				<tr>
+					<th>الاختبار</th>
+					<th>السعر الأساسي</th>
+					<th>مدة التنفيذ (يوم)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for c in profile.test_catalog %}
+				<tr>
+					<td>
+						{% if c.test_type_label %}{{ c.test_type_label.label_ar or c.test_type_label.label_en }}{% else %}{{ c.test_type }}{% endif %}
+						{% if c.description %}<div style="color:#667085; font-size:12px;">{{ c.description }}</div>{% endif %}
+					</td>
+					<td>{{ "%.2f"|format(c.price or 0) }} {{ c.currency or "" }}</td>
+					<td>{{ c.turnaround_days or "—" }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		<div class="miyar-empty">لا توجد اختبارات مُفعّلة حالياً.</div>
+		{% endif %}
+	</div>
+	{% endif %}
+
+	<div class="miyar-section">
+		<h2>آخر التقييمات</h2>
+		{% if profile.recent_reviews %}
+		{% for r in profile.recent_reviews %}
+		<div class="miyar-review">
+			<div class="miyar-rating-line">★ {{ "%.1f"|format((r.rating or 0) * 5) }}/5</div>
+			{% if r.comments %}<div>{{ r.comments }}</div>{% endif %}
+		</div>
+		{% endfor %}
+		{% else %}
+		<div class="miyar-empty">لا توجد تقييمات بعد.</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
